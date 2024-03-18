@@ -1,0 +1,8 @@
+<script setup lang="ts"></script>
+
+<template>
+    <h1>This is the about page</h1>
+    <Like />
+</template>
+
+<style scoped></style>

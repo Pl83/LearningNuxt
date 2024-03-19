@@ -10,15 +10,52 @@
        }).then(res => res.data)
    })
 
+
+    const items = [{
+    label: 'All Articles',
+    key: 'all',
+    content: 'This is the content shown for Tab1'
+    }, {
+    label: 'Funny Articles',
+    key: 'fun',
+    content: 'And, this is the content for Tab2'
+    }, {
+    label: 'Dangerous Articles',
+    key: 'danger',
+    content: 'Finally, this is the content for Tab3'
+    }]
+
+    
 </script>
 
 <template>
     <h1>Hello World</h1>
-    <!-- <pre>{{ data }}</pre> -->
-    <section>
-        <a :href="`/articles/${article.slug}`" v-for="article in data" :key="article.slug">{{ article.title }}</a>
-    </section>
-</template>&
+
+    <UTabs :items="items">
+        <template #item="{ item }">
+            <div v-if="item.key === 'all'" >
+                <h1>All Articles</h1>
+                <section v-for="article in data" :key="article.slug">
+                    <a :href="`/articles/${article.slug}`">{{ article.title }}</a>
+                    <hr>
+                    <hr>
+                </section>
+            </div>
+            <div v-else-if="item.key === 'fun'">
+                <h1>Funny Articles</h1>
+                <section>
+                    
+                </section>
+            </div>
+            <div v-else-if="item.key === 'danger'">
+                <h1>Dangerous Articles</h1>
+                <section>
+                    
+                </section>
+            </div>
+        </template>
+    </UTabs>
+</template>
 
 <style scoped>
     h1 {

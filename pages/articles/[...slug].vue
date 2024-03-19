@@ -1,11 +1,11 @@
-<script lang="ts">
+<script setup lang="ts">
     import type { Article } from '~/models/article.model'
 
     const { findOne } = useStrapi4()
     const route = useRoute()
 
     const { data: article, pending } = useAsyncData('article', 
-    () => findOne<{ data: Article }>(`articles/${route.params.slug}`))
+    () => findOne<{ data: Article[] }>(`articles/${route.params.slug}`))
 </script>
 
 
@@ -13,3 +13,5 @@
     <h1>Oui</h1>
     <pre>{{ article }}</pre>
 </template>
+
+<style scoped></style>

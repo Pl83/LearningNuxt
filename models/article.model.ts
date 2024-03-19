@@ -4,6 +4,7 @@ import { Popularity } from '~/models/popularity.model'
 export interface Article {
     id: number
     title: string
+    slug: string
     intro: string
     created_at: Date
     updated_at: Date

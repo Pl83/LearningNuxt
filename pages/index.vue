@@ -2,13 +2,13 @@
 
     import type { ArticlesResponse } from '~/models/article.model'
 
-   const { find } = useStrapi()
+   const { find } = useStrapi();
 
    const { data, pending, error } = await useAsyncData('articles', async () => {
        return await find<ArticlesResponse>('articles', {
             populate: '*'
-       }).then(res => res.data)
-   })
+       }).then(res => res.data);
+   });
 
 
     const items = [{
@@ -23,9 +23,25 @@
     label: 'Dangerous Articles',
     key: 'danger',
     content: 'Finally, this is the content for Tab3'
-    }]
+    }];
 
-    
+    // make search bar functional
+
+    const searchbar = document.getElementById('searchbar') as HTMLInputElement;
+
+    searchbar.addEventListener('input', () => {
+        const search = searchbar.value.toLowerCase();
+        const sections = document.querySelectorAll('section');
+
+        sections.forEach(section => {
+            const title = section.querySelector('a')?.textContent?.toLowerCase() || '';
+            if (title.includes(search)) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    });
 </script>
 
 <template>

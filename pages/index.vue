@@ -25,27 +25,28 @@
     content: 'Finally, this is the content for Tab3'
     }];
 
-    // make search bar functional
+    onMounted(() => {
+        const searchbar = document.getElementById('searchbar') as HTMLInputElement;
 
-    const searchbar = document.getElementById('searchbar') as HTMLInputElement;
+        searchbar.addEventListener('input', () => {
+            const search = searchbar.value.toLowerCase();
+            const sections = document.querySelectorAll('section');
 
-    searchbar.addEventListener('input', () => {
-        const search = searchbar.value.toLowerCase();
-        const sections = document.querySelectorAll('section');
-
-        sections.forEach(section => {
-            const title = section.querySelector('a')?.textContent?.toLowerCase() || '';
-            if (title.includes(search)) {
-                section.style.display = 'block';
-            } else {
-                section.style.display = 'none';
-            }
+            sections.forEach(section => {
+                const title = section.querySelector('a')?.textContent?.toLowerCase() || '';
+                if (title.includes(search)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
         });
     });
 </script>
 
 <template>
     <h1>Hello World</h1>
+       
 
     <UTabs :items="items">
         <template #item="{ item }">
@@ -82,6 +83,8 @@
         </template>
     </UTabs>
 </template>
+
+
 
 <style scoped>
     h1 {

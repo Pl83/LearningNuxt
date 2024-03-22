@@ -36,21 +36,31 @@
             <div v-if="item.key === 'all'" >
                 <h1>All Articles</h1>
                 <section v-for="article in data" :key="article.slug">
-                    <a :href="`/articles/${article.slug}`">{{ article.title }}</a>
-                    <hr>
-                    <hr>
+                    <div>
+                        <a :href="`/articles/${article.slug}`">{{ article.title }}</a>
+                        <hr>
+                        <hr>
+                    </div>
                 </section>
             </div>
             <div v-else-if="item.key === 'fun'">
                 <h1>Funny Articles</h1>
-                <section>
-                    
+                <section v-for="article in data" :key="article.slug">
+                    <div v-if="article.tag === 'fun'">
+                        <a :href="`/articles/${article.slug}`">{{ article.title }}</a>
+                        <hr>
+                        <hr>
+                    </div>
                 </section>
             </div>
             <div v-else-if="item.key === 'danger'">
                 <h1>Dangerous Articles</h1>
-                <section>
-                    
+                <section v-for="article in data" :key="article.slug">
+                    <div v-if="article.tag === 'danger'">
+                        <a :href="`/articles/${article.slug}`">{{ article.title }}</a>
+                        <hr>
+                        <hr>
+                    </div>
                 </section>
             </div>
         </template>

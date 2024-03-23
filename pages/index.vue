@@ -1,5 +1,7 @@
 <script setup lang="ts">
 
+    
+
     import type { ArticlesResponse } from '~/models/article.model'
 
    const { find } = useStrapi();
@@ -42,16 +44,21 @@
             });
         });
     });
+    
 </script>
 
 <template>
-    <h1>Hello World</h1>
-       
+<main>
+    <header>
+        <h1>Welcome to Spéculat-If</h1>
+        <p>Here you can find all our articles. You can also sort them by categorys.</p>
+    </header>
 
     <UTabs :items="items">
         <template #item="{ item }">
             <div v-if="item.key === 'all'" >
-                <h1>All Articles</h1>
+                
+                <h2>All Articles</h2>
                 <section v-for="article in data" :key="article.slug">
                     <div>
                         <a :href="`/articles/${article.slug}`">{{ article.title }}</a>
@@ -61,7 +68,7 @@
                 </section>
             </div>
             <div v-else-if="item.key === 'fun'">
-                <h1>Funny Articles</h1>
+                <h2>Funny Articles</h2>
                 <section v-for="article in data" :key="article.slug">
                     <div v-if="article.tag === 'fun'">
                         <a :href="`/articles/${article.slug}`">{{ article.title }}</a>
@@ -71,7 +78,7 @@
                 </section>
             </div>
             <div v-else-if="item.key === 'danger'">
-                <h1>Dangerous Articles</h1>
+                <h2>Dangerous Articles</h2>
                 <section v-for="article in data" :key="article.slug">
                     <div v-if="article.tag === 'danger'">
                         <a :href="`/articles/${article.slug}`">{{ article.title }}</a>
@@ -82,17 +89,36 @@
             </div>
         </template>
     </UTabs>
+</main>
 </template>
 
 
 
 <style scoped>
+    main {
+        min-height: calc(100vh - 90px - 250px);
+    }
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 2rem;
+    }
     h1 {
-        color: red;
+        color: #2F4DDB;
+        font-size: 2rem;
+        margin: 0;
+    }
+    h2 {
+        color: #2F4DDB;
+        font-size: 1.5rem;
+        margin: 0;
+        padding-bottom: 20px;
     }
     section {
         display: flex;
-        flex-direction: column;
+        flex-direction: column;  
     }
     a {
         margin: 10px 0;

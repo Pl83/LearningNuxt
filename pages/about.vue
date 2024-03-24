@@ -3,26 +3,26 @@
 <template>
     <main>
         <header>
-            <h1>Qui somme nous ? </h1>
-            <p>Spéculat-IF est une agence web qui simplifie les nouvelles technologies liées à l'informatique en imaginant une vision hypothétique et subjective du futur façonné par ces avancées.</p>
+            <h1>Who are we ?</h1>
+            <p>Spéculat-IF is a web agency that publish video and article about the possibility of evolution in the future for some technologis.</p>
         </header>
         <section class="about">
             <div class="socials">
                 <div>
-                    <h3 style="background-color: transparent !important; color: #FFFFFF !important;">Nos réseaux :</h3>
-                    <p style="background-color: transparent !important; color: #FFFFFF !important;">Retrouvez nous sur youtube avec une version de nos articles aux format vidéo et en short sur TikTok.</p>
+                    <h3 style="background-color: transparent !important; color: #FFFFFF !important;">Our Scocial Network :</h3>
+                    <p style="background-color: transparent !important; color: #FFFFFF !important;">You can find all your other content on youtube, insta and tiktok. Feel free to go watch them and live a like.</p>
                 </div>
                 <div class="social">
                     <img src="../images/youtube.svg" alt="youtube">
-                    <a href="https://www.youtube.com/channel/UCyraSvJ0mzdwG8zgk7-YcQg" target="_blank">Lien youtube</a>
+                    <a href="https://www.youtube.com/channel/UCyraSvJ0mzdwG8zgk7-YcQg" target="_blank">Link youtube</a>
                 </div>
                 <div class="social">
                     <img src="../images/tiktok.svg" alt="tiktok">
-                    <a href="https://www.tiktok.com/@speculat_if" target="_blank">Lien tiktok</a>
+                    <a href="https://www.tiktok.com/@speculat_if" target="_blank">Link tiktok</a>
                 </div>
                 <div class="social">
                     <img src="../images/insta.svg" alt="">
-                    <a href="https://www.instagram.com/speculatif.horizon/" target="_blank">Lien instagram</a>
+                    <a href="https://www.instagram.com/speculatif.horizon/" target="_blank">Link instagram</a>
                 </div>
             </div>
             <form action="">
@@ -42,22 +42,22 @@
                         <input id="email" type="email">
                     </div>
                     <div class="champ">
-                        <label for="sujet">Sujet *</label>
+                        <label for="sujet">Subject *</label>
                         <select name="sujet" id="subject-select" class="CFD">
                             <option value="">-- Sélectioner une option --</option>
-                            <option value="sujet 1">Retour</option>
+                            <option value="sujet 1">Advise</option>
                             <option value="sujet 2">Question</option>
-                            <option value="sujet 3">Erreur</option>
-                            <option value="sujet 4">Autre</option>
+                            <option value="sujet 3">Error</option>
+                            <option value="sujet 4">Other</option>
                           </select>
                     </div>
                 </div>
                 <div class="champ">
                     <label for="message">Message *</label>
-                    <textarea name="message" id="message" class="CFD" cols="30" rows="5" placeholder="Écris ton message là"></textarea>
+                    <textarea name="message" id="message" class="CFD" cols="30" rows="5" placeholder="Write your message here"></textarea>
                 </div>
                 <div class="valid">
-                    <input onclick="VerifAndSend()" value="Envoyer">
+                    <input onclick="VerifAndSend()" value="Send">
                 </div>
             </form>
         </section>
